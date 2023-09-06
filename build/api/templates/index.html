@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Predictor</title>
+    <!-- <script>
+        window.onload = (event) => {
+            // document.getElementById("getChurnPrediction").onclick(() => {
+            //     alert("Hello Yati")
+            // })
+            document.getElementById("getChurnPrediction").onclick = function() {
+                // alert("Hello Yati");
+                fetch("http://127.0.0.1:5000/rhydam")
+                    .then((response) => response.text().then((val) => console.log(val)))
+            }
+            console.log("page is fully loaded");
+        };
+    </script> -->
+</head>
+<body>
+    <form action="http://127.0.0.1:5000/prediction" method="post">
+        <label for="age">Age</label>
+        <input name="age" placeholder="Enter Age"/>
+        <br>
+        <br>
+        <label for ="gender">Gender</label>
+        <select id="gender", name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        
+        <br>
+        <br>
+        <label for = "location">Location</label>
+        <select id = "location", name="location">
+            <option value="Chicago">Chicago</option>
+            <option value="Houston">Houston</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Miami">Miami</option>
+            <option value="New York">New York</option>
+        </select>
+        <br>
+        <br>
+        <label>Subscription_Length_Months</label>
+        <input name="subscription_Length_Months"/>
+        <br>
+        <br>
+        <label>Monthly_Bill</label>
+        <input name="monthly_bill"/>
+        <br>
+        <br>
+        <label>Total_Usage_GB</label>
+        <input name="total_usage_gb"/>
+        <button type="submit" id="getChurnPrediction">Get Churn Prediction</button>
+    </form>
+</body>
+</html>
