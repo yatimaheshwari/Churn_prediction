@@ -23,7 +23,7 @@ Therefore, customer churn analysis is essential as it can help a business:
 
 2) Download the trained model pickel object from mega link -
 
-[Mega Download - prediction.pkl](https://mega.nz/file/ZOlj1J5S#myJ6PXqv2yGZQLyfXmlB5pTTpTFth2bDGuokPE0wf9A)
+[Mega Download - prediction.pkl](https://mega.nz/file/ASE1mRgQ#lZDbFv_muZU0DlhVy8RGJN-SIYCaI3z6SgAa0WfyZWw)
  
 
 ## Run Locally
