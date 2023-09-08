@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from flask import Flask,request,jsonify,render_template
 import pickle
 
@@ -14,8 +15,6 @@ def hello(username):
 
 @app.route('/prediction', methods = ['POST'])
 def prediction():
-    print("Hello")
-    print(request.form.get('gender'))
     try:
         Age = request.form.get('age')
         Gender = request.form.get('gender')
@@ -27,6 +26,7 @@ def prediction():
             Gender = 0
         elif Gender == "Male":
             Gender = 1
+
         if Location == "Chicago":
             Location = 0
         elif Location == "Houston":
@@ -38,10 +38,9 @@ def prediction():
         elif Location == "New York":
             Location = 4
 
-        model = pickle.load(open('prediction.pkl','rb'))
-        print("foobar")
+        model = pickle.load(open(r'build\api\prediction.pkl','rb'))
         test = model.predict([[Age,Gender,Location,Subscription_Length_Months,Monthly_Bill,Total_Usage_GB]])
-        print(test[0])
+    
         if test == 1:
             return 'Churn is 1'
         elif test == 0:
